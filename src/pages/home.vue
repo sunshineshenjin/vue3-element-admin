@@ -7,10 +7,15 @@
     <div>
         <todo-list></todo-list>
     </div>
+    vuex 的值{{a}}
 </div>
 </template>
 
-<script setup>
-        import TodoList from './../components/todo-list.vue'
-        import ClassComponent from './../components/class-component.vue'
+<script lang="ts" setup>
+import TodoList from './../components/todo-list.vue'
+import ClassComponent from './../components/class-component.vue'
+import { useStore } from '@/store'
+import AppState from '@/store/model/AppState'
+const store =  useStore<AppState>()
+let a = store.state.appName
 </script>

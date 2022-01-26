@@ -1,28 +1,12 @@
+import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-router'
+import CommonRouter from './common-router'
 
-import {
-    createRouter,
-    createWebHistory,
-  } from 'vue-router'
-  import Home from '../pages/home.vue'
-  import About from '../pages/about.vue'
-  
-  const routes = [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: About
-    }
-  ]
-  
-  const router = createRouter({
-    history: createWebHistory(),
-    routes
-  })
-  
-  export default router
-  
+let routers: RouteRecordRaw[] = []
+
+routers.push(...CommonRouter)
+const router: Router = createRouter({
+  history: createWebHistory(),
+  routes: routers
+})
+
+export default router
